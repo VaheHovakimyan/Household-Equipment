@@ -1,33 +1,35 @@
 // Import
 
-@import "/src/scssVariables/variables";
+@import "/public/assets/scssVariables/variables";
 
 // Templates
 
-%promo_update{
-  .footer_promo_date{
+%promo_update {
+  .footer_promo_date {
     color: rgba(255, 255, 255, 0.50);
     font-family: Roboto, sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    .footer_promo_date_month{
+
+    .footer_promo_date_month {
       font-size: 14px;
     }
   }
 
-  .footer_promo_description{
+  .footer_promo_description {
     color: $page_color;
     font-family: Roboto, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 300;
     line-height: 22px;
+    padding: 14px 0;
   }
 
-  .footer_promo_comment{
-    color: $page_color;
+  .footer_promo_comment {
+    color: rgba(255, 255, 255, 0.50);
     font-family: Roboto, sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -46,35 +48,89 @@
 
   .footer_flex {
     display: flex;
-    padding: 40px;
-    gap: 60px;
+    padding: 50px;
+    gap: 130px;
 
+    .footer_contact_div {
+      width: 300px;
+      .footer_contact_title {
+        color: $page_color;
+        font-family: Roboto, sans-serif;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+
+      .footer_contact_mid_text {
+        color: rgba(255, 255, 255, 0.50);
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        padding: 41px 0;
+      }
+
+      .footer_contact{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-bottom: 55px;
+        .footer_contact_text{
+          color: $page_color;
+          font-family: Roboto, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 22px;
+        }
+      }
+      .footer_social_icons{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
 
     .footer_links_newsletter {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 50px;
+      gap: 150px;
 
       .footer_mid_div {
         display: flex;
         flex-direction: column;
+        gap: 16px;
 
         .footer_mid_div_title {
-          padding-bottom: 20px;
+          padding-bottom: 34px;
         }
       }
 
-      .footer_promo_div{
-        .footer_promo_top{
-          border-bottom: 1px green solid;
-          padding-bottom: 35px;
-          @extend  %promo_update;
+      .footer_promo_div {
+        width: 320px;
+        .footer_mid_div_title {
+          color: $page_color;
+          font-family: Roboto, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: 22px;
+          padding-bottom: 34px;
         }
 
-        .footer_promo_bottom{
-          padding-top: 35px;
-          @extend  %promo_update;
+
+        .footer_promo_top {
+          border-bottom: 1px rgba(255, 255, 255, 0.5) solid;
+          padding-bottom: 34px;
+          @extend %promo_update;
+        }
+
+        .footer_promo_bottom {
+          padding-top: 34px;
+          @extend %promo_update;
         }
       }
 
