@@ -1,0 +1,20 @@
+// Import
+@import "src/scssVariables/variables";
+
+// Style
+.website_end_flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  background: $website_end;
+
+  .website_end_text {
+    color: #FFF;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+  }
+}

@@ -1,0 +1,84 @@
+// Import
+
+@import "/src/scssVariables/variables";
+
+// Templates
+
+%promo_update{
+  .footer_promo_date{
+    color: rgba(255, 255, 255, 0.50);
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    .footer_promo_date_month{
+      font-size: 14px;
+    }
+  }
+
+  .footer_promo_description{
+    color: $page_color;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 22px;
+  }
+
+  .footer_promo_comment{
+    color: $page_color;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+}
+
+
+// Style
+
+.footer {
+  background-color: $footer;
+  color: white;
+
+  .footer_flex {
+    display: flex;
+    padding: 40px;
+    gap: 60px;
+
+
+    .footer_links_newsletter {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 50px;
+
+      .footer_mid_div {
+        display: flex;
+        flex-direction: column;
+
+        .footer_mid_div_title {
+          padding-bottom: 20px;
+        }
+      }
+
+      .footer_promo_div{
+        .footer_promo_top{
+          border-bottom: 1px green solid;
+          padding-bottom: 35px;
+          @extend  %promo_update;
+        }
+
+        .footer_promo_bottom{
+          padding-top: 35px;
+          @extend  %promo_update;
+        }
+      }
+
+
+    }
+  }
+}

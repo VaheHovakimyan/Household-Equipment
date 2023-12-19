@@ -1,0 +1,15 @@
+.nav_flex {
+  display: flex;
+  justify-content: center;
+  padding: 38px 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+
+
+  .nav_flex_links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+  }
+}
