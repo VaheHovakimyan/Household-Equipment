@@ -1,16 +1,19 @@
 import {FC} from "react";
 import './Home.scss';
 import {Search} from "../../components/search/Search";
-// import {Footer} from "../../components/footer/Footer";
-// import {Header} from "../../components/header/Header";
-// import {WebsiteEnd} from "../../components/websiteEnd/WebsiteEnd";
+import {Conditions} from "../../components/conditions/Conditions";
+import {HomeSlider} from "../../components/homeSlider/HomeSlider";
+import {Bedsheet} from "../../components/bedsheet/Bedsheet";
+
 
 export const Home: FC = () => {
 
     return (
         <div>
-            <Search />
-             Home
+            <Search/>
+            <Conditions/>
+            <HomeSlider/>
+            <Bedsheet/>
         </div>
     )
 }

@@ -1,15 +1,53 @@
-.search_div{
-  .search_input{
+// Import
+@import "public/assets/scssVariables/variables";
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 
+// Style
+.search_div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 30px 0;
+
+  .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
   }
-  //input[type="search"] {
-  //  //border: none;
-  //  background: transparent;
-  //  margin: 0;
-  //  padding: 7px 8px;
-  //  font-size: 14px;
-  //  color: inherit;
-  //  border: 1px solid transparent;
-  //  border-radius: inherit;
-  //}
+
+  .search-icon {
+    position: absolute;
+    left: 20px;
+    font-size: 22px;
+    color: #888;
+  }
+
+  .search-input {
+    padding: 8px 30px 8px 10px;
+    outline: none;
+    width: 560px;
+    height: 55px;
+    border-radius: 25px;
+    border: 2px solid $website_end;
+  }
+
+
+   .search_button{
+     width: 145px;
+     height: 63px;
+     background: $button;
+     color: $page_color;
+     text-align: center;
+     font-family: Roboto, sans-serif;
+     font-size: 20px;
+     font-style: normal;
+     font-weight: 600;
+     line-height: normal;
+     letter-spacing: 0.6px;
+     outline: none;
+     border: 0;
+   }
+
+
 }

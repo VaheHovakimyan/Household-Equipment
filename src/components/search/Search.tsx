@@ -5,14 +5,12 @@ import './Search.scss';
 export const Search: FC = () => {
     return (
         <div className="search_div">
-            {/*<input*/}
-            {/*    type="text"*/}
-            {/*    className="search_input"*/}
-            {/*/>*/}
 
-            <form className="nosubmit">
-                <input className="nosubmit" type="search" placeholder="Search..."/>
-            </form>
+            <div className="search-container">
+                <i className="search-icon fas fa-search"></i>
+                <input type="text" className="search-input"/>
+            </div>
+
             <button className="search_button">Search</button>
         </div>
     )

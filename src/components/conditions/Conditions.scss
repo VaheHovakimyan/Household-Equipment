@@ -1,0 +1,31 @@
+.conditions_flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 55px;
+
+  .conditions_div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+
+    .condition {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 16px;
+
+      .condition_text {
+        color: rgba(0, 0, 0, 0.50);
+        font-family: Roboto, sans-serif;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 0.36px;
+      }
+
+    }
+  }
+}
