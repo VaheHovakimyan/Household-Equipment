@@ -15,7 +15,7 @@ export const Bedsheet: FC = () => {
                     </div>
                     <p className="bedsheet_description">
                         Lorem ipsum dolor sit amet, consectetur <br/>
-                      adipiscing elit, sed do eiusmod tempor.
+                        adipiscing elit, sed do eiusmod tempor.
                     </p>
                     <button className="bedsheet_view_details_btn">
                         VIEW DETAILS

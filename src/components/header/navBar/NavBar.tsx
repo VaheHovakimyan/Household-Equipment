@@ -9,29 +9,40 @@ export const NavBar: FC = () => {
             <div className="nav_flex">
 
                 <div className="nav_flex_links">
-                    <NavLink to="/" className="navlink">
-                        <span className="navlink_style">HOME</span>
+                    <NavLink
+                        to="/"
+                        className={
+                            ({isActive}) =>
+                                isActive ? "navlink_active" : "navlink"
+                        }>
+                        HOME
                     </NavLink>
-                    <NavLink to="/store" className="navlink">
-                        <span className="navlink_style">STORE</span>
+                    <NavLink
+                        to="/store"
+                        className={
+                            ({isActive}) =>
+                                isActive ? "navlink_active" : "navlink"
+                        }
+                    >
+                        STORE
+                    </NavLink>
+                    <NavLink to={"/login"} className="navlink">
+                        ACCESSORIES
                     </NavLink>
                     <NavLink to={"/"} className="navlink">
-                        <span className="navlink_style">ACCESSORIES</span>
+                        BRAND
                     </NavLink>
                     <NavLink to={"/"} className="navlink">
-                        <span className="navlink_style">BRAND</span>
+                        PAGES
                     </NavLink>
                     <NavLink to={"/"} className="navlink">
-                        <span className="navlink_style">PAGES</span>
+                        ABOUT US
                     </NavLink>
                     <NavLink to={"/"} className="navlink">
-                        <span className="navlink_style">ABOUT US</span>
+                        NEWS
                     </NavLink>
                     <NavLink to={"/"} className="navlink">
-                        <span className="navlink_style">NEWS</span>
-                    </NavLink>
-                    <NavLink to={"/"} className="navlink">
-                        <span className="navlink_style">CONTACT US </span>
+                        CONTACT US
                     </NavLink>
                 </div>
 
