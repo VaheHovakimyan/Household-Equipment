@@ -1,0 +1,43 @@
+.store_premium_div_flex {
+  background-image: url("../../../public/assets/images/store/store_poster.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .store_premium_div {
+    padding: 45px 0;
+    .store_premium_title {
+      color: #222;
+      font-family: Roboto, sans-serif;
+      font-size: 38px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      text-transform: capitalize;
+      text-align: center;
+      padding-bottom: 15px;
+    }
+
+    .store_premium_description {
+      color: #222;
+      font-family: Roboto, sans-serif;
+      font-size: 38px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: lowercase;
+      text-align: center;
+      padding-bottom: 45px;
+    }
+
+    .store_premium_text {
+      color: #222;
+      font-family: Roboto, sans-serif;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      text-align: center;
+    }
+  }
+}

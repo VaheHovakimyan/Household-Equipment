@@ -1,0 +1,99 @@
+// Template
+
+%input_template_style {
+  width: 200px;
+  padding: 10px 0 10px 20px;
+  border-radius: 16px;
+  outline: none;
+}
+
+%input_div {
+  .input_div {
+    .register_input {
+      @extend %input_template_style;
+      border: 1px black solid;
+    }
+
+    .register_input_error {
+      @extend %input_template_style;
+      border: 1px red solid;
+    }
+
+    .error_message_span {
+      color: #f43f3f;
+      padding-left: 4px;
+    }
+  }
+}
+
+// Style
+.login_div_flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+  margin-top: 50px;
+  margin-bottom: 1px;
+
+  .login_div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 50px 0;
+
+    .login_route_div {
+      padding: 16px 0;
+      color: white;
+
+      .form_title {
+        text-align: center;
+      }
+
+    }
+
+    .login_field_div_flex {
+      display: flex;
+      justify-content: center;
+
+      .login_field_div {
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        .login_basic_fields {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 16px;
+          width: 40%;
+          padding-bottom: 50px;
+          @extend %input_div;
+        }
+
+      }
+    }
+
+    .login_button_div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 30px;
+
+      .login_button {
+        width: 200px;
+        padding: 14px 30px;
+        background: #4C8787;
+        border: 1px darkgreen solid;
+        outline: none;
+        border-radius: 8px;
+        cursor: pointer;
+        color: white;
+        font-size: 18px;
+      }
+
+    }
+    
+  }
+}
