@@ -3,10 +3,10 @@
 
 // Style
 .bedsheet_div {
-  //width: 100%;
-  //height: 100%;
+  background: url("../../../public/assets/images/home/bedsheet.png");
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
-  background: url("../../../public/assets/images/home/bedsheet.png"), no-repeat, center;
   padding: 150px;
 
   .bedsheet_poster_div {
@@ -15,28 +15,65 @@
     width: fit-content;
 
     .bedsheet_elems {
-      .bedsheet_title {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
 
+      .bedsheet_title {
+        color: #323334;
+        font-family: Roboto, sans-serif;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
       }
 
       .bedsheet_price {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 70%;
 
         .bedsheet_new_price {
-
+          color: #7B5136;
+          font-family: Roboto, sans-serif;
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
         }
 
         .bedsheet_old_price {
-
+          color: #7B5136;
+          font-family: Roboto, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
         }
       }
 
       .bedsheet_description {
-
+        color: #000;
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 22px;
       }
 
       .bedsheet_view_details_btn {
-
+        width: 124px;
+        height: 48px;
+        border: 1px solid $page_color;
+        background: $button;
+        color: $page_color;
+        font-family: Roboto, sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.45px;
       }
     }
   }

@@ -1,0 +1,56 @@
+// Import
+@import '/public/assets/scssVariables/variables';
+
+// Style
+
+.newsletter_div_flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  
+  .newsletter_div {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+
+    .newsletter_text_div {
+
+      .newsletter_description_title {
+        color: #323334;
+        font-family: Roboto, sans-serif;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+
+      .newsletter_description_text {
+        color: #323334;
+        font-family: Roboto, sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: capitalize;
+      }
+
+    }
+
+    .newsletter_input_btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .newsletter_input {
+        width: 515px;
+        height: 50px;
+        border: 1px solid $website_end;
+        padding: 8px 0 8px 20px;
+      }
+
+
+    }
+
+  }
+}
