@@ -3,7 +3,7 @@ export interface SliderItemInterface {
     src: string
 }
 
-export interface topProductInterface {
+export interface HomeProductsInterface {
     richDescription: string,
     image: string,
     images: any[],
@@ -20,4 +20,12 @@ export interface topProductInterface {
     dateCreated: string,
     __v?: any,
     id?: any
+}
+
+export interface HomeCategoriesInterface {
+    color:string;
+    icon: string
+    name:string
+    __v?: any
+    _id?:any
 }

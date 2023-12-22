@@ -2,7 +2,6 @@
 @import '/public/assets/scssVariables/variables';
 
 // Style
-
 .newsletter_div_flex {
   display: flex;
   justify-content: center;
@@ -12,7 +11,7 @@
   .newsletter_div {
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
 
     .newsletter_text_div {
 

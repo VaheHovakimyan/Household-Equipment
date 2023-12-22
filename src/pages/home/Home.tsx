@@ -6,18 +6,20 @@ import {Bedsheet} from "../../components/home/bedsheet/Bedsheet";
 import {NewsletterSignUp} from "../../components/home/newsletterSignUp/NewsletterSignUp";
 import {CategoriesProducts} from "../../components/home/categoriesProducts/CategoriesProducts";
 import './Home.scss';
+import {TopRatingProducts} from "../../components/home/topRatingProducts/TopRatingProducts";
 
 
 export const Home: FC = () => {
 
     return (
-        <div>
+        <>
             <Search/>
             <Conditions/>
             <HomeSlider/>
             <CategoriesProducts />
             <Bedsheet/>
+            <TopRatingProducts />
             <NewsletterSignUp/>
-        </div>
+        </>
     )
 }

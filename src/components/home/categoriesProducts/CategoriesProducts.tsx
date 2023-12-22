@@ -1,18 +1,19 @@
 import {FC, useEffect, useState} from "react";
-import {useProducts} from "../../../hooks/useProducts";
+import {useHomeCategories} from "../../../hooks/useHomeCategories";
 import './CategoriesProducts.scss';
+
 
 export const CategoriesProducts: FC = () => {
 
-    const [topProduct, setTopProduct] = useState([]);
+    const [homeCategories, setHomeCategories] = useState([]);
 
-    const {data}: any = useProducts();
+    const {data}: any = useHomeCategories();
 
     useEffect(() => {
         if (data) {
-            setTopProduct(data);
+            setHomeCategories(data);
         }
-    }, [data, topProduct, setTopProduct]);
+    }, [data, homeCategories, setHomeCategories]);
 
 
     return (
@@ -32,7 +33,7 @@ export const CategoriesProducts: FC = () => {
 
                     <img src={`/assets/images/home/vase.png`} alt="product_right_part_image" />
                     <p className="product_static_text">
-                        LARGE TERRACOTA VASE
+                        LARGE TERRACOTA <br/> VASE 
                     </p>
 
                 </div>
@@ -41,8 +42,7 @@ export const CategoriesProducts: FC = () => {
 
             <div className="topProduct_div_flex">
                 <div className="topProduct_div">
-                    {topProduct.map((item: any) => {
-                        console.log(item);
+                    {homeCategories.map((item: any) => {
                         return (
                             <div
                                 key={item.id}

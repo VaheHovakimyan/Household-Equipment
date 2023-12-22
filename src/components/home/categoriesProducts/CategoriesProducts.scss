@@ -1,15 +1,46 @@
 // Style
 
-.product_static_div{
-  .product_static_div_left_part{
+.product_static_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 40px;
 
+  .product_static_div_left_part {
+    display: flex;
+    //justify-content: center;
+    align-items: center;
+    width: 50%;
+
+    .product_static_text {
+      color: #323334;
+      font-family: Roboto, sans-serif;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
   }
-  .product_static_div_right_part{
+
+  .product_static_div_right_part {
+    display: flex;
+    //justify-content: center;
+    align-items: center;
     width: 50%;
     background-image: url('../../../../public/assets/images/home/plate.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+
+    .product_static_text {
+      color: #323334;
+      font-family: Roboto, sans-serif;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
   }
 }
 
@@ -21,7 +52,7 @@
 
   .topProduct_div {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 16px;
