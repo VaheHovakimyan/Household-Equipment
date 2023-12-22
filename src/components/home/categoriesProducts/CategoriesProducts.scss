@@ -1,0 +1,48 @@
+// Style
+
+.product_static_div{
+  .product_static_div_left_part{
+
+  }
+  .product_static_div_right_part{
+    width: 50%;
+    background-image: url('../../../../public/assets/images/home/plate.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.topProduct_div_flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+
+  .topProduct_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    .product_div {
+      .product_category_image {
+        width: 310px;
+        height: 420px;
+      }
+
+      .product_category_name {
+        color: #323334;
+        font-family: Roboto, sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin: 35px 0;
+      }
+
+    }
+
+  }
+}

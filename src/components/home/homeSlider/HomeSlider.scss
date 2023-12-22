@@ -1,6 +1,14 @@
 // Import
 @import "public/assets/scssVariables/variables";
 
+// Templates
+%slider_circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 // Style
 .home_slider_div {
   width: 100%;
@@ -8,28 +16,23 @@
   padding: 55px 0;
   margin: 0 auto;
   overflow: hidden;
-  //max-width: 500px;
 
   .home_show_slider {
     white-space: nowrap;
     transition: all 0.6s ease-in-out;
 
     .slider {
-      //display: flex;
       min-width: 100%;
       overflow: hidden;
 
       .slider-item {
-        //display: flex;
         flex: 0 0 100%;
         transition: all 0.5s ease-in-out;
         opacity: 0;
         height: 0;
-        //width: 0;
-        //visibility: hidden;
 
         .slider_show_flex {
-            display: flex;
+          display: flex;
 
           .slider_left_part {
             display: flex;
@@ -88,8 +91,6 @@
       .slider-item.active {
         opacity: 1;
         height: auto;
-        //width: auto;
-        //visibility: visible;
         transform: translateX(0%);
         min-width: 100%;
       }
@@ -100,45 +101,27 @@
 
     }
 
-  }
-
-  .slider_circle_div_flex {
-    display: flex;
-    justify-content: center;
-
-    .slider_circle_div {
+    .slider_circle_div_flex {
       display: flex;
-      gap: 8px;
-      transform: translate(50%, 0%);
+      justify-content: center;
 
-      .slider_circle {
-        width: 14px;
-        height: 14px;
-        background-color: gray;
-        border-radius: 50%;
+      .slider_circle_div {
+        display: flex;
+        gap: 8px;
+        transform: translate(50%, 0%);
+
+        .slider_circle {
+          @extend %slider_circle;
+          background-color: #C4C4C4;
+        }
+
+        .slider_circle_active {
+          @extend %slider_circle;
+          background-color: #0A032A;
+        }
       }
     }
+
   }
+
 }
-
-//.slider-container {
-//  display: flex;
-//  overflow: hidden;
-//}
-
-//.slider-item {
-//  flex: 0 0 100%;
-//  transition: transform 0.5s ease-in-out;
-//  opacity: 0;
-//  height: 0;
-//}
-//
-//.slider-item.active {
-//  opacity: 1;
-//  height: auto;
-//  transform: translateX(0);
-//}
-//
-//.slider-item.active ~ .slider-item {
-//  transform: translateX(100%);
-//}

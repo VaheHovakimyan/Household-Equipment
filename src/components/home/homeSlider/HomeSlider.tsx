@@ -40,7 +40,7 @@ export const HomeSlider: FC = () => {
 
         // Clear the timeout when the component is unmounted or when the activeIndex changes
         return () => clearTimeout(timeoutId);
-    }, [activeIndex]);
+    }, [activeIndex, sliderArray.length, setActiveIndex]);
 
     return (
 
@@ -81,14 +81,24 @@ export const HomeSlider: FC = () => {
 
                         </div>
 
-                        // <div
-                        //     key={index}
-                        //     className={`slider-item ${index === activeIndex ? 'active' : ''}`}
-                        // >
-                        //     ID:{id}
-                        // </div>
                     ))}
                 </div>
+
+                <div className="slider_circle_div_flex">
+                    <div className="slider_circle_div">
+                        {sliderArray.map((_, index) => {
+                            return (
+                                <div
+                                    key={index}
+                                    className={activeIndex === index ? "slider_circle_active" : "slider_circle"}
+                                    onClick={() => setActiveIndex(index)}
+                                >
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+
             </div>
         </div>
     );
