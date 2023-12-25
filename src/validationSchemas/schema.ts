@@ -2,7 +2,6 @@ import * as yup from "yup";
 
 const PASSWORD_REGEXP: RegExp = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-]).{8,}$/;
 
-
 export const registerSchema: any = yup.object().shape({
     name: yup
         .string()

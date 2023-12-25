@@ -1,80 +1,20 @@
-import { FC, useEffect, useState } from "react";
+import {FC, useEffect, useState} from "react";
 import './TopRatingProducts.scss';
-import { useHomeProducts } from "../../../hooks/useHomeProducts";
-import first_image from '../../../test/first.png';
+import {useHomeProducts} from "../../../hooks/useHomeProducts";
 
-
-const homeProducts = [
-    {
-        id: 0,
-        name: "Bedroom",
-        rating: 4.5,
-        price: 30
-    },
-    {
-        id: 1,
-        name: "Bedroom",
-        rating: 4.5,
-        price: 30
-    },
-    {
-        id: 2,
-        name: "Bedroom",
-        rating: 4.5,
-        price: 30
-    },
-    {
-        id: 3,
-        src: "/public/assets/test/first.png",
-        name: "Bedroom",
-        rating: 4.5,
-        price: 30
-    },
-    {
-        id: 0,
-        name: "Bedroom",
-        rating: 4.5,
-        price: 30
-    },
-    {
-        id: 1,
-        name: "Bedroom",
-        rating: 4.5,
-        price: 30
-    },
-    {
-        id: 2,
-        name: "Bedroom",
-        rating: 4.5,
-        price: 30
-    },
-    {
-        id: 3,
-        src: "/public/assets/test/first.png",
-        name: "Bedroom",
-        rating: 4.5,
-        price: 30
-    },
-    {
-        id: 0,
-        name: "Bedroom",
-        rating: 4.5,
-        price: 30
-    }
-]
 
 export const TopRatingProducts: FC = () => {
-    // const [homeProducts, setHomeProducts] = useState([]);
+    const [homeProducts, setHomeProducts] = useState([]);
 
-    // const {data}: any = useHomeProducts();
+    const {data}: any = useHomeProducts();
 
-    // useEffect(() => {
-    //     if (data) {
-    //         setHomeProducts(data);
-    //     }
-    // }, [data, homeProducts, setHomeProducts]);
+    useEffect(() => {
+        if (data) {
+            setHomeProducts(data);
+        }
+    }, [data, homeProducts, setHomeProducts]);
 
-    // console.log(homeProducts);
+    console.log("DATA", data);
 
     return (
         <div className="top_rating_main_div">
@@ -96,8 +36,8 @@ export const TopRatingProducts: FC = () => {
 
                                 <div className="top_rating_item_left_part">
                                     <img
-                                        src={first_image}
-                                        alt="first_image"
+                                        src={item.image}
+                                        alt="top_product_image"
                                         className="top_rating_item_left_part_image"
                                     />
                                 </div>
@@ -109,9 +49,19 @@ export const TopRatingProducts: FC = () => {
                                         className="average_rating"
                                         min="0"
                                         max="5"
-                                        value="4.3"
-                                        title="4.3 out of 5 stars">
+                                        value={rate}
+                                    >
+                                            <span
+                                                className="average_rating_span"
+                                                style={{
+                                                    background: `linear-gradient(90deg, gold ${rate}%, rgba(0,0,0,0.2) ${rate}%)`,
+                                                    WebkitTextFillColor: "transparent",
+                                                    WebkitBackgroundClip: "text"
+                                                }}
+                                            >★★★★★</span>
+
                                     </meter>
+
 
                                     <h2>{item.price}$</h2>
                                 </div>

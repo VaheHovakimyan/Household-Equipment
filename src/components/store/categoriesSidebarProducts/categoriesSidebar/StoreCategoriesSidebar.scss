@@ -1,0 +1,54 @@
+// Import
+@import "public/assets/scssVariables/variables";
+
+// Templates
+%categories_navlink{
+  text-decoration: none;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+// Style
+.store_sidebar_aside {
+  padding-top: 140px;
+
+  .store_sidebar_div {
+    .categories_title_div {
+      .categories_title {
+        color: #323334;
+        font-family: Roboto, sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
+        padding: 14px 0;
+      }
+    }
+
+    .categories_products_sidebar_flex {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .sidebar_category_name_div {
+
+        .sidebar_category_name {
+          color: #323334;
+          @extend %categories_navlink;
+        }
+
+        .sidebar_category_name_active{
+          color: $button;
+          @extend %categories_navlink;
+        }
+      }
+    }
+
+
+  }
+}

@@ -58,19 +58,25 @@
     gap: 16px;
 
     .product_div {
-      .product_category_image {
-        width: 310px;
-        height: 420px;
-      }
+      cursor: pointer;
 
-      .product_category_name {
-        color: #323334;
-        font-family: Roboto, sans-serif;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        margin: 35px 0;
+      .product_category_link{
+        text-decoration: none;
+
+        .product_category_image {
+          width: 310px;
+          height: 420px;
+        }
+
+        .product_category_name {
+          color: #323334;
+          font-family: Roboto, sans-serif;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          margin: 35px 0;
+        }
       }
 
     }

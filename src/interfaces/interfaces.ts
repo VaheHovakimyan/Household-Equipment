@@ -22,10 +22,14 @@ export interface HomeProductsInterface {
     id?: any
 }
 
-export interface HomeCategoriesInterface {
+export interface CategoriesInterface {
     color:string;
     icon: string
     name:string
     __v?: any
     _id?:any
+}
+
+export interface CategoriesTitle {
+    title: any
 }
