@@ -1,73 +1,100 @@
 .categories_products_article {
-  .categories_products_title_div {
-    padding: 50px 0;
+
+  .store_category_products_div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 45px;
 
     .categories_products_title {
 
     }
-  }
 
-  .store_filter_div {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-  }
+    .categories_title_products_div {
 
-  .store_category_products_div {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
+      .categories_title_div_column {
+        display: flex;
+        flex-direction: column;
 
-    .filtered_products {
+        .categories_products_title_div {
+          padding: 50px 0;
+        }
 
+        .store_filter_div_flex {
+          display: flex;
+          justify-content: flex-start;
+          padding: 16px 0;
 
-      .categopy_product_image {
-        width: 305px;
-        height: 370px;
-        padding-bottom: 20px;
+          .store_filter_div {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+          }
+        }
       }
 
-      .average_rating {
-        position: relative;
-        appearance: none;
-        color: transparent;
-        width: auto;
-        display: block;
-        vertical-align: baseline;
-        font-size: 25px;
-        margin: 12px 0;
-      }
 
-      .average_rating_span {
-        position: absolute;
-        top: 0;
-        left: 0;
-        color: rgba(0, 0, 0, 0.2);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+      .filtered_products_flex {
+        display: flex;
 
-      .category_product_name {
-        color: #323334;
-        font-family: Roboto, sans-serif;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-      }
+        .link_to_product {
+            text-decoration: none;
 
-      .category_product_price {
-        color: #323334;
-        font-family: Roboto, sans-serif;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        padding-bottom: 20px;
+          .filtered_products {
+
+            .categopy_product_image {
+              width: 305px;
+              height: 370px;
+              padding-bottom: 20px;
+            }
+
+            .average_rating {
+              position: relative;
+              appearance: none;
+              color: transparent;
+              width: auto;
+              display: block;
+              vertical-align: baseline;
+              font-size: 25px;
+              margin: 12px 0;
+              //background-clip: text;
+              //-webkit-background-clip: text;
+              //-webkit-text-fill-color: transparent;
+            }
+
+            .average_rating_span {
+              position: absolute;
+              top: 0;
+              left: 0;
+              color: rgba(0, 0, 0, 0.2);
+              //background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+
+            .category_product_name {
+              color: #323334;
+              font-family: Roboto, sans-serif;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+            }
+
+            .category_product_price {
+              color: #323334;
+              font-family: Roboto, sans-serif;
+              font-size: 24px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+              padding-bottom: 20px;
+            }
+          }
+        }
       }
     }
-
   }
-
 
 }

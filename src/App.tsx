@@ -8,6 +8,7 @@ import {Login} from "./pages/login/Login";
 import {ShopBag} from "./pages/shop-bag/ShopBag";
 import {Store} from "./pages/store/Store";
 import {CategoriesSidebarProducts} from "./components/store/categoriesSidebarProducts/CategoriesSidebarProducts";
+import {Products} from "./pages/products/Products";
 
 
 function App() {
@@ -33,6 +34,10 @@ function App() {
                     {
                         path: "register",
                         element: <Register/>
+                    },
+                    {
+                        path:"products/:id",
+                         element: <Products />
                     },
                     {
                         path: "login",
