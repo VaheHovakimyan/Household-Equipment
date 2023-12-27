@@ -1,14 +1,66 @@
-import {FC} from "react";
-import {useParams} from "react-router-dom";
+import {FC, useEffect, useState} from "react";
+import {useNavigate, useParams} from "react-router-dom";
 import {useProduct} from "../../hooks/useProduct";
 import './Products.scss';
 
 
 export const Products: FC = () => {
 
+    const navigate = useNavigate();
     const {id} = useParams();
-
+    const [bool, setBool] = useState(false);
     const {data} = useProduct(id);
+
+    const [count, setCount] = useState(0);
+
+    const [currentProduct, setCurrentProduct] = useState({});
+
+    const [currentProductArray, setCurrentProductArray] = useState<any[]>(JSON.parse(localStorage.getItem("currentBag")!));
+
+    // setBool(JSON.parse(localStorage.getItem("currentBag")!));
+    console.log("JSON", JSON.parse(localStorage.getItem("currentBag")!))
+
+    useEffect(() => {
+        setBool(JSON.parse(localStorage.getItem("currentBag")!));
+        if (bool === null) {
+            localStorage.setItem("currentBag", JSON.stringify([]));
+        }else{
+            localStorage.setItem("currentBag", JSON.stringify(currentProductArray));
+        }
+    }, [bool, setBool]);
+
+
+
+
+    const arrayFromMethod = Array.from({length: data?.countInStock || 0}, (_, index) => index + 1);
+
+
+    useEffect(() => {
+        setCurrentProduct({
+            ...data,
+            countOfOrder: +count
+        });
+    }, [data, count]);
+
+
+    console.log("PROD", currentProduct);
+
+    const onAddToCart = () => {
+        if (count !== 0) {
+
+            setCurrentProductArray([
+                ...currentProductArray,
+                currentProduct
+            ]);
+
+            // const val = JSON.stringify(currentProductArray)
+            localStorage.setItem("currentBag", JSON.stringify(currentProductArray));
+            // console.log('ashot', currentProductArray);
+            // setTimeout(() => {
+            //     navigate("/shop-bag");
+            // }, 0);
+        }
+    }
 
     return (
         <article className="product_article">
@@ -66,29 +118,47 @@ export const Products: FC = () => {
                 <div className="product_count_add_to_cart_btn_div">
 
                     <div className="product_count_div">
-                        <select className="product_count">
-                            <option>COUNT</option>
+                        <select
+                            className="product_count"
+                            value={count}
+                            onChange={
+                                (e: any) => setCount(e.target.value)
+                            }
+                        >
+                            <option
+                                value="0"
+                                disabled={true}
+                            >COUNT
+                            </option>
 
-                            {/*<option>1</option>*/}
-                            {/*<option>2</option>*/}
-                            {/*<option>3</option>*/}
-                            {/*<option>4</option>*/}
-                            {/*<option>5</option>*/}
-                            {/*<option>6</option>*/}
-                            {/*<option>7</option>*/}
-                            {/*<option>8</option>*/}
-                            {/*<option>9</option>*/}
-                            {/*<option>10</option>*/}
+                            {arrayFromMethod.map((value: number) => {
+                                return (
+                                    <option
+                                        key={value}
+                                        value={value}
+                                    >{value}</option>
+                                )
+                            })}
 
                         </select>
                     </div>
 
                     <div className="product_add_btn_div">
-                        <button className="products_add_btn">ADD TO CART</button>
+
+                        <button
+                            className="products_add_btn"
+                            onClick={onAddToCart}
+                        >
+
+                            ADD TO CART
+
+                        </button>
+
                     </div>
 
                 </div>
             </div>
+
         </article>
     )
 }

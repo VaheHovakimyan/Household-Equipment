@@ -1,20 +1,25 @@
 import {FC, useEffect, useState} from "react";
 import './TopRatingProducts.scss';
-import {useHomeProducts} from "../../../hooks/useHomeProducts";
+import {useFeatured} from "../../../hooks/useFeatured";
+import {Link} from "react-router-dom";
 
 
 export const TopRatingProducts: FC = () => {
+
     const [homeProducts, setHomeProducts] = useState([]);
 
-    const {data}: any = useHomeProducts();
+    const [loadMoreCount, setLoadMoreCount] = useState(3);
+
+    const {data}: any = useFeatured(loadMoreCount);
 
     useEffect(() => {
+
         if (data) {
             setHomeProducts(data);
         }
+
     }, [data, homeProducts, setHomeProducts]);
 
-    console.log("DATA", data);
 
     return (
         <div className="top_rating_main_div">
@@ -30,27 +35,33 @@ export const TopRatingProducts: FC = () => {
                     {homeProducts.map((item: any) => {
 
                         const rate = item.rating / 5 * 100;
+                        console.log(item);
 
                         return (
-                            <div key={item.id} className="top_rating_product_item">
+                            <Link
+                                key={item.id}
+                                to={`/products/${item.id}`}
+                                className="link_to_product"
+                            >
+                                <div className="top_rating_product_item">
 
-                                <div className="top_rating_item_left_part">
-                                    <img
-                                        src={item.image}
-                                        alt="top_product_image"
-                                        className="top_rating_item_left_part_image"
-                                    />
-                                </div>
+                                    <div className="top_rating_item_left_part">
+                                        <img
+                                            src={item.image}
+                                            alt="top_product_image"
+                                            className="top_rating_item_left_part_image"
+                                        />
+                                    </div>
 
-                                <div className="top_rating_item_right_part">
-                                    <h3>{item.name}</h3>
+                                    <div className="top_rating_item_right_part">
+                                        <h3>{item.name}</h3>
 
-                                    <meter
-                                        className="average_rating"
-                                        min="0"
-                                        max="5"
-                                        value={rate}
-                                    >
+                                        <meter
+                                            className="average_rating"
+                                            min="0"
+                                            max="5"
+                                            value={rate}
+                                        >
                                             <span
                                                 className="average_rating_span"
                                                 style={{
@@ -60,16 +71,26 @@ export const TopRatingProducts: FC = () => {
                                                 }}
                                             >★★★★★</span>
 
-                                    </meter>
+                                        </meter>
 
 
-                                    <h2>{item.price}$</h2>
+                                        <h2>{item.price}$</h2>
+                                    </div>
+
                                 </div>
-
-                            </div>
+                            </Link>
                         )
                     })}
                 </div>
+            </div>
+
+            <div className="loadmore_btn_div">
+                <button
+                    className="loadmore_btn"
+                    onClick={(e: any) => setLoadMoreCount(loadMoreCount + 3)}
+                >
+                    LOAD MORE
+                </button>
             </div>
         </div>
     )

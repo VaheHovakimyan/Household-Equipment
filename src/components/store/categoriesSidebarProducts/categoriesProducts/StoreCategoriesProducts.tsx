@@ -3,6 +3,7 @@ import './StoreCategoriesProducts.scss';
 import {Link, useParams} from "react-router-dom";
 import {useHomeProducts} from "../../../../hooks/useHomeProducts";
 
+
 export const StoreCategoriesProducts: FC = () => {
 
     const {id} = useParams();
@@ -94,7 +95,7 @@ export const StoreCategoriesProducts: FC = () => {
                             </div>
                         )
                     }
-                ) : <h1 style={{padding:"50px 0"}}>Choose category</h1>
+                ) : <h1 style={{padding: "50px 0"}}>Choose category</h1>
                 }
 
             </div>

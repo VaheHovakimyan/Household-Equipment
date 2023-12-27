@@ -44,12 +44,14 @@ export const CategoriesProducts: FC = () => {
             <div className="topProduct_div_flex">
                 <div className="topProduct_div">
                     {categories.map((item: any) => {
+
+
                         return (
                             <div
                                 key={item._id}
                                 className="product_div"
                             >
-                                <Link to="store" className="product_category_link">
+                                <Link to={`store/${item._id}`} className="product_category_link">
                                     <img
                                         src={item.icon}
                                         alt="product_category_image"
