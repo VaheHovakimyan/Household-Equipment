@@ -1,25 +1,82 @@
 import {FC, useEffect, useState} from "react";
 import './ShopBag.scss';
+import {ShopItem} from "./shopItem/ShopItem";
 
 
 export const ShopBag: FC = () => {
-
-    const [countItemBag, setCountItemBag] = useState(0);
 
     const [currentProductOfBag, setCurrentProductOfBag] = useState({});
     const [currentShopBag, setCurrentShopBag] = useState(JSON.parse(localStorage.getItem("currentBag")!));
 
     const [priceOfSum, setPriceOfSum] = useState(0);
 
+    const [token, setToken] = useState(JSON.parse(localStorage.getItem("token")!));
+
     const shop_bag = JSON.parse(localStorage.getItem("currentBag")!);
 
+    const combinedArray = shop_bag.reduce((acc: any, current: any) => {
 
-    // useEffect(() => {
-    //     setCurrentProductOfBag({
-    //         ...data,
-    //         countOfOrder: +countItemBag
-    //     });
-    // }, [data, countItemBag]);
+        const existingItem = acc.find((item: any) => item.id === current.id);
+
+        if (existingItem) {
+            existingItem.countOfOrder += current.countOfOrder;
+        } else {
+            acc.push({...current});
+        }
+
+        return acc;
+    }, []);
+
+    localStorage.setItem("currentBag", JSON.stringify(combinedArray));
+
+    const onChangeCountOrderOfBag = (shopItem: any, countItemBag: any) => {
+
+        console.log("::::COUNT", countItemBag);
+
+        const currentBag = JSON.parse(localStorage.getItem("currentBag")!);
+
+        const readyBag = currentBag.map((item: any) => {
+            if (shopItem.id === item.id) {
+                return {
+                    ...shopItem,
+                    countOfOrder: +countItemBag
+                }
+            } else {
+                return item;
+            }
+        });
+
+        console.log("READY");
+
+        console.log("READEY BAG BAG BAG BAG BAG BAG ", readyBag);
+
+        localStorage.setItem("currentBag", JSON.stringify(readyBag));
+
+        const updatedCountBag = JSON.parse(localStorage.getItem("currentBag")!);
+
+        setCurrentShopBag(updatedCountBag);
+    }
+
+
+    const onDeleteItem = (id: string) => {
+
+        const newItemsOfBag = shop_bag.filter((card: any) => card.id !== id)
+        localStorage.setItem("currentBag", JSON.stringify(newItemsOfBag));
+
+        const updatedArr = JSON.parse(localStorage.getItem("currentBag")!);
+        setCurrentShopBag(updatedArr);
+    }
+
+
+    useEffect(() => {
+        setPriceOfSum(() => {
+            return currentShopBag.reduce((acc: any, current: any) => {
+                return acc + (current.countOfOrder * current.price);
+            }, 0)
+        })
+    }, [currentShopBag]);
+
+
 
     return (
         <article className="shop_bag_article">
@@ -28,62 +85,18 @@ export const ShopBag: FC = () => {
 
             <div className="shop_bag_products_flex">
                 <div className="shop_bag_products_left_part">
-                    {shop_bag?.map((item: any) => {
+                    {currentShopBag?.map((item: any) => {
 
                         const arrayFromMethod = Array.from({length: item?.countInStock || 0}, (_, index) => index + 1);
 
                         return (
-                            <div className="shop_bag_item_div" key={item.id}>
-
-                                <div className="shop_bag_image_parameters">
-
-                                    <img
-                                        src={item.image}
-                                        alt="shop_bag_image"
-                                        className="shop_bag_item_image"
-                                    />
-
-                                    <div className="shop_bag_item">
-
-                                        <div className="shop_bag_item_name_price_div">
-                                            <h2 className="shop_bag_item_name">{item.name}</h2>
-                                            <h4 className="shop_bag_item_price">{item.price}$</h4>
-                                        </div>
-
-                                        <select
-                                            className="shop_bag_count_select"
-                                            value={item?.countOfOrder}
-                                            onChange={
-                                                (e: any) => setCountItemBag(e.target.value)
-                                            }
-                                        >
-                                            <option
-                                                value="0"
-                                                disabled={true}
-                                            >COUNT
-                                            </option>
-
-                                            {arrayFromMethod.map((value: number) => {
-                                                return (
-                                                    <option
-                                                        key={value}
-                                                        value={value}
-                                                    >{value}</option>
-                                                )
-                                            })}
-
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div className="delete_btn_div">
-                                    <img
-                                        src={`assets/icons/shopBag/delete.svg`}
-                                        alt="delete_icon"
-                                        className="delete_btn"
-                                    />
-                                </div>
-                            </div>
+                            <ShopItem
+                                onChangeCountOrderOfBag={onChangeCountOrderOfBag}
+                                arrayFromMethod={arrayFromMethod}
+                                onDeleteItem={onDeleteItem}
+                                item={item}
+                                key={item.id}
+                            />
                         )
                     })}
 
@@ -120,7 +133,12 @@ export const ShopBag: FC = () => {
                         </div>
 
                         <div className="shop_bag_checkout_div">
-                            <button className="shop_bag_checkout">
+                            <button
+                                className="shop_bag_checkout"
+                                onClick={() => {
+                                    console.log(token.token);
+                                }}
+                            >
                                 Continue to checkout
                             </button>
                         </div>

@@ -3,6 +3,8 @@ import './Register.scss';
 import {ErrorMessage, Field, Form, Formik, useField} from "formik";
 import {Link, useNavigate} from "react-router-dom";
 import {registerSchema} from "../../validationSchemas/schema";
+import {useRegister} from "../../hooks/useRegister";
+import {RegisterInterface} from "../../interfaces/interfaces";
 
 
 export const SignUpInput = ({form, ...props}: any) => {
@@ -24,8 +26,9 @@ export const SignUpInput = ({form, ...props}: any) => {
 
 export const Register: FC = () => {
 
-
     const navigate = useNavigate();
+
+    const {mutate: registration} = useRegister(navigate, "/login");
 
     return (
         <div className="register_div_flex">
@@ -53,7 +56,7 @@ export const Register: FC = () => {
                         onSubmit={(values, actions) => {
                             console.log("SUBMIT");
                             console.log("VALUES", values);
-                            navigate('/login');
+                            registration(values)
                         }}
                     >
                         {() => (
@@ -84,7 +87,6 @@ export const Register: FC = () => {
                                     </div>
 
                                 </div>
-
 
                                 <div className="register_button_div">
                                     <button type="submit" className="sign_up_button">

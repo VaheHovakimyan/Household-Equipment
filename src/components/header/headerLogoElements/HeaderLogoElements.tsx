@@ -35,12 +35,13 @@ export const HeaderLogoElements: FC = () => {
                         />
                     </Link>
 
-
-                    <img
-                        src={`/assets/icons/header/burger.svg`}
-                        alt="account_icon"
-                        className="header_elem_icon"
-                    />
+                    <Link to="shop-history">
+                        <img
+                            src={`/assets/icons/header/burger.svg`}
+                            alt="account_icon"
+                            className="header_elem_icon"
+                        />
+                    </Link>
                 </div>
             </div>
         </div>

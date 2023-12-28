@@ -1,7 +1,7 @@
 import {FC, useEffect, useState} from "react";
-import './TopRatingProducts.scss';
 import {useFeatured} from "../../../hooks/useFeatured";
 import {Link} from "react-router-dom";
+import './TopRatingProducts.scss';
 
 
 export const TopRatingProducts: FC = () => {
@@ -35,7 +35,6 @@ export const TopRatingProducts: FC = () => {
                     {homeProducts.map((item: any) => {
 
                         const rate = item.rating / 5 * 100;
-                        console.log(item);
 
                         return (
                             <Link

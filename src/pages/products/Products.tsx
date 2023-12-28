@@ -17,19 +17,22 @@ export const Products: FC = () => {
 
     const [currentProductArray, setCurrentProductArray] = useState<any[]>(JSON.parse(localStorage.getItem("currentBag")!));
 
-    // setBool(JSON.parse(localStorage.getItem("currentBag")!));
-    console.log("JSON", JSON.parse(localStorage.getItem("currentBag")!))
+    // console.log("CURCURCUR", currentProductArray);
+    //
+    //
+    // console.log("JSON", JSON.parse(localStorage.getItem("currentBag")!));
 
     useEffect(() => {
+
         setBool(JSON.parse(localStorage.getItem("currentBag")!));
-        if (bool === null) {
-            localStorage.setItem("currentBag", JSON.stringify([]));
-        }else{
-            localStorage.setItem("currentBag", JSON.stringify(currentProductArray));
+
+        console.log("BOOL", bool);
+
+        if (currentProductArray === null) {
+            setCurrentProductArray([]);
         }
-    }, [bool, setBool]);
 
-
+    }, []);
 
 
     const arrayFromMethod = Array.from({length: data?.countInStock || 0}, (_, index) => index + 1);
@@ -42,23 +45,24 @@ export const Products: FC = () => {
         });
     }, [data, count]);
 
-
-    console.log("PROD", currentProduct);
-
+    
     const onAddToCart = () => {
+
+        // console.log("COUNT", count)
+
         if (count !== 0) {
 
-            setCurrentProductArray([
+            // console.log("CURRENT PRODUCT", currentProduct);
+
+            const product = [
                 ...currentProductArray,
                 currentProduct
-            ]);
+            ]
 
-            // const val = JSON.stringify(currentProductArray)
-            localStorage.setItem("currentBag", JSON.stringify(currentProductArray));
-            // console.log('ashot', currentProductArray);
-            // setTimeout(() => {
-            //     navigate("/shop-bag");
-            // }, 0);
+            setCurrentProductArray(product);
+            localStorage.setItem("currentBag", JSON.stringify(product));
+
+            navigate("/shop-bag");
         }
     }
 

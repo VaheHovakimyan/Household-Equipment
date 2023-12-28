@@ -26,7 +26,7 @@ export const NavBar: FC = () => {
                     >
                         STORE
                     </NavLink>
-                    <NavLink to={"/login"} className="navlink">
+                    <NavLink to={"/"} className="navlink">
                         ACCESSORIES
                     </NavLink>
                     <NavLink to={"/"} className="navlink">

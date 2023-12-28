@@ -30,7 +30,7 @@ export interface CategoriesInterface {
     _id?: any
 }
 
-export interface OrderProduct{
+export interface OrderProduct {
     richDescription: string,
     image: string,
     images: any[],
@@ -48,4 +48,26 @@ export interface OrderProduct{
     __v?: any,
     id?: any,
     countOfOrder?: any
+}
+
+export interface HistoryItemInterface {
+    historyItem: OrderProduct
+}
+
+
+export interface RegisterInterface {
+    name: string,
+    email: string,
+    password: any,
+    phone: string,
+    street: string,
+    apartment: string,
+    zip: string,
+    city: string,
+    country: string
+}
+
+export interface LoginInterface {
+    email: string,
+    password: string
 }

@@ -9,6 +9,7 @@ import {ShopBag} from "./pages/shop-bag/ShopBag";
 import {Store} from "./pages/store/Store";
 import {CategoriesSidebarProducts} from "./components/store/categoriesSidebarProducts/CategoriesSidebarProducts";
 import {Products} from "./pages/products/Products";
+import {History} from "./pages/history/History";
 
 
 function App() {
@@ -36,8 +37,8 @@ function App() {
                         element: <Register/>
                     },
                     {
-                        path:"products/:id",
-                         element: <Products />
+                        path: "products/:id",
+                        element: <Products/>
                     },
                     {
                         path: "login",
@@ -48,6 +49,10 @@ function App() {
                         element: <ShopBag/>
                     },
                     {
+                        path: "shop-history",
+                        element: <History/>
+                    },
+                    {
                         path: "*",
                         element: <NotFound/>
                     }
@@ -56,8 +61,6 @@ function App() {
 
         ]
     );
-
-    
 
 
     return (

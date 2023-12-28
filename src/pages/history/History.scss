@@ -1,0 +1,14 @@
+.history_article_flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 50px;
+  .history_items_div_flex{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+}

@@ -1,14 +1,18 @@
-import {FC} from "react";
+import {FC, useEffect} from "react";
 import './Login.scss';
 import {loginSchema} from "../../validationSchemas/schema";
 import {Field, Form, Formik} from "formik";
 import {SignUpInput} from "../register/Register";
 import {useNavigate} from "react-router-dom";
+import {useLogin} from "../../hooks/useLogin";
 
 
 export const Login: FC = () => {
 
     const navigate = useNavigate();
+    
+    const {mutate: login} = useLogin(navigate, "/");
+
 
     return (
         <div className="login_div_flex">
@@ -27,7 +31,7 @@ export const Login: FC = () => {
                     onSubmit={(values, actions) => {
                         console.log("SUBMIT");
                         console.log("VALUES", values);
-                        navigate('/');
+                        login(values);
                     }}
                 >
                     {() => (
