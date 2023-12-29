@@ -1,5 +1,3 @@
-import {OrdersAllInterface} from "../interfaces/interfaces";
-
 export const getHistoryApi = async () => {
 
     const token = JSON.parse(localStorage.getItem("token")!);

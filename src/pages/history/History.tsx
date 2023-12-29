@@ -14,7 +14,7 @@ export const History: FC = () => {
             <div className="history_items_div_flex">
 
                 {history?.map((product: any) => {
-                    // console.log("Product", product);
+
                     return (
                         <HistoryItem
                             key={Math.random()}

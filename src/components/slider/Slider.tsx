@@ -2,7 +2,6 @@ import {Navigation, Pagination, Scrollbar, A11y} from 'swiper/modules';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import React, {FC} from "react";
 import "./Slider.scss";
-import {HomeProductsInterface, SwiperSlider} from "../../interfaces/interfaces";
 import {SliderItem} from "./sliderItem/SliderItem";
 import {useSlider} from "../../hooks/useSlider";
 
@@ -11,7 +10,6 @@ export const Slider: FC = () => {
 
     const {data} = useSlider();
 
-    console.log("DADADADA", data);
 
     return (
         <Swiper

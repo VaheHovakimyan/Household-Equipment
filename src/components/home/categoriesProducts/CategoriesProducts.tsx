@@ -1,7 +1,7 @@
 import {FC, useEffect, useState} from "react";
 import {useCategories} from "../../../hooks/useCategories";
 import './CategoriesProducts.scss';
-import {Link, NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 
 export const CategoriesProducts: FC = () => {

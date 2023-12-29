@@ -1,5 +1,3 @@
-import {HomeProductsInterface} from "../interfaces/interfaces";
-
 export const getSliderApi = async () => {
 
     try {

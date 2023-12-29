@@ -29,16 +29,14 @@ export const HomeSlider: FC = () => {
         }
     ]
     useEffect(() => {
-        // Function to handle the timeout and change the active index
+
         const handleTimeout = () => {
             const newIndex = (activeIndex + 1) % sliderArray.length;
             setActiveIndex(newIndex);
         };
 
-        // Set a timeout to change the active index every 3 seconds (adjust as needed)
         const timeoutId = setTimeout(handleTimeout, 2000);
 
-        // Clear the timeout when the component is unmounted or when the activeIndex changes
         return () => clearTimeout(timeoutId);
     }, [activeIndex, sliderArray.length, setActiveIndex]);
 
