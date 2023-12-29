@@ -20,6 +20,7 @@ export interface HomeProductsInterface {
     dateCreated: string,
     __v?: any,
     id?: any,
+    slides?: any
 }
 
 export interface CategoriesInterface {
@@ -50,11 +51,6 @@ export interface OrderProduct {
     countOfOrder?: any
 }
 
-export interface HistoryItemInterface {
-    historyItem: OrderProduct
-}
-
-
 export interface RegisterInterface {
     name: string,
     email: string,
@@ -70,4 +66,41 @@ export interface RegisterInterface {
 export interface LoginInterface {
     email: string,
     password: string
+}
+
+export interface OrderItemsObjInterface {
+    quantity: number | string,
+    product: string
+}
+
+export interface OrdersInterface {
+    orderItems: OrderItemsObjInterface[]
+    shippingAddress1: string,
+    shippingAddress2: string,
+    city: string
+    zip: string,
+    country: string,
+    phone: string,
+    user: string
+}
+
+export interface OrdersAllInterface {
+    history: OrdersInterface[]
+}
+
+export interface HistoryItemInterface {
+    historyItem: any
+}
+
+export interface SwiperSlider {
+    id: string
+    image: string,
+    name: string,
+    price: string
+}
+
+export interface SwiperSliderItemInterface {
+    url: string,
+    name: string,
+    price: string
 }

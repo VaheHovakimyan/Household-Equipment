@@ -1,22 +1,23 @@
-import {LoginInterface} from "../interfaces/interfaces";
+import {OrdersInterface} from "../interfaces/interfaces";
 
-export const loginApi = async (body: LoginInterface) => {
+export const ordersApi = async (body: OrdersInterface) => {
+
+    const token = JSON.parse(localStorage.getItem("token")!);
 
     try {
         const response = await fetch(
-            `http://172.16.16.121:3000/api/v1/users/login`, {
+            `http://172.16.16.121:3000/api/v1/orders`, {
                 method: 'POST',
                 body: JSON.stringify(body),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
+                    'Authorization': `Bearer ${token.token}`
                 },
             });
 
         const json = await response.json();
 
-
-        localStorage.setItem("token", JSON.stringify(json));
-        // return json as LoginInterface;
+        return json as OrdersInterface;
     } catch (error) {
         console.error('Error fetching data:', error);
         throw error;

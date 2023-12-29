@@ -1,9 +1,14 @@
 import {FC, useEffect, useState} from "react";
 import './ShopBag.scss';
 import {ShopItem} from "./shopItem/ShopItem";
+import {useOrders} from "../../hooks/useOrders";
+import {OrderItemsObjInterface, OrderProduct, OrdersInterface} from "../../interfaces/interfaces";
+import {useNavigate} from "react-router-dom";
 
 
 export const ShopBag: FC = () => {
+
+    const navigate = useNavigate();
 
     const [currentProductOfBag, setCurrentProductOfBag] = useState({});
     const [currentShopBag, setCurrentShopBag] = useState(JSON.parse(localStorage.getItem("currentBag")!));
@@ -11,8 +16,16 @@ export const ShopBag: FC = () => {
     const [priceOfSum, setPriceOfSum] = useState(0);
 
     const [token, setToken] = useState(JSON.parse(localStorage.getItem("token")!));
+    const [currentOrder, setCurrentOrder] = useState([]);
 
-    const shop_bag = JSON.parse(localStorage.getItem("currentBag")!);
+
+    let shop_bag = JSON.parse(localStorage.getItem("currentBag")!);
+
+    if (!shop_bag) {
+        shop_bag = [];
+    }
+
+    const {mutate: orders} = useOrders(navigate, "/shop-history");
 
     const combinedArray = shop_bag.reduce((acc: any, current: any) => {
 
@@ -46,8 +59,6 @@ export const ShopBag: FC = () => {
             }
         });
 
-        console.log("READY");
-
         console.log("READEY BAG BAG BAG BAG BAG BAG ", readyBag);
 
         localStorage.setItem("currentBag", JSON.stringify(readyBag));
@@ -68,6 +79,34 @@ export const ShopBag: FC = () => {
     }
 
 
+    const onCheckout = () => {
+
+        const token = JSON.parse(localStorage.getItem("token")!);
+
+        const orderItemsArr = currentShopBag.map((item: OrderProduct) => {
+            return {
+                quantity: item.countOfOrder,
+                product: item.id
+            }
+        }, [])
+
+        const currentOrder: OrdersInterface = {
+            orderItems: orderItemsArr,
+            shippingAddress1: "No 45,Park Street",
+            shippingAddress2: "No 46,Main Street",
+            city: "Colombo",
+            zip: "10600t",
+            country: "Sri Lanka",
+            phone: "+94717185748",
+            user: token.userID
+        }
+
+        if (token) {
+            localStorage.setItem("currentBag", JSON.stringify([]));
+            orders(currentOrder);
+        }
+    }
+
     useEffect(() => {
         setPriceOfSum(() => {
             return currentShopBag.reduce((acc: any, current: any) => {
@@ -75,7 +114,6 @@ export const ShopBag: FC = () => {
             }, 0)
         })
     }, [currentShopBag]);
-
 
 
     return (
@@ -135,9 +173,7 @@ export const ShopBag: FC = () => {
                         <div className="shop_bag_checkout_div">
                             <button
                                 className="shop_bag_checkout"
-                                onClick={() => {
-                                    console.log(token.token);
-                                }}
+                                onClick={onCheckout}
                             >
                                 Continue to checkout
                             </button>

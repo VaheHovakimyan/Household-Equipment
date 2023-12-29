@@ -1,4 +1,4 @@
-import {FC, useEffect} from "react";
+import {FC} from "react";
 import './Login.scss';
 import {loginSchema} from "../../validationSchemas/schema";
 import {Field, Form, Formik} from "formik";

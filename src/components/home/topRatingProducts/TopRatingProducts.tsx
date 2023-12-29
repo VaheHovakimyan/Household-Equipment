@@ -86,7 +86,7 @@ export const TopRatingProducts: FC = () => {
             <div className="loadmore_btn_div">
                 <button
                     className="loadmore_btn"
-                    onClick={(e: any) => setLoadMoreCount(loadMoreCount + 3)}
+                    onClick={() => setLoadMoreCount(loadMoreCount + 3)}
                 >
                     LOAD MORE
                 </button>

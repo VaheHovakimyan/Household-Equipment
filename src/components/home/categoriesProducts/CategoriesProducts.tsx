@@ -41,29 +41,31 @@ export const CategoriesProducts: FC = () => {
 
             </div>
 
-            <div className="topProduct_div_flex">
-                <div className="topProduct_div">
-                    {categories.map((item: any) => {
+            <article className="article_div_flex">
+                <div className="topProduct_div_flex">
+                    <div className="topProduct_div">
+                        {categories.map((item: any) => {
 
 
-                        return (
-                            <div
-                                key={item._id}
-                                className="product_div"
-                            >
-                                <Link to={`store/${item._id}`} className="product_category_link">
-                                    <img
-                                        src={item.icon}
-                                        alt="product_category_image"
-                                        className="product_category_image"
-                                    />
-                                    <p className="product_category_name">{item.name}</p>
-                                </Link>
-                            </div>
-                        )
-                    })}
+                            return (
+                                <div
+                                    key={item._id}
+                                    className="product_div"
+                                >
+                                    <Link to={`store/${item._id}`} className="product_category_link">
+                                        <img
+                                            src={item.icon}
+                                            alt="product_category_image"
+                                            className="product_category_image"
+                                        />
+                                        <p className="product_category_name">{item.name}</p>
+                                    </Link>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
-            </div>
+            </article>
         </div>
     )
 }
